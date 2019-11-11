@@ -126,8 +126,6 @@ type Todo implements Node {
 input TodoAddInput {
   title: String!
   description: String!
-  address: String
-  date: String
   clientMutationId: String
 }
 

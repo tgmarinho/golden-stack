@@ -9,8 +9,6 @@ import { TodoConnection } from '../TodoType';
 interface TodoAddArgs {
   title: string;
   description: string;
-  address: string;
-  date: string;
 }
 
 const mutation = mutationWithClientMutationId({
@@ -22,21 +20,13 @@ const mutation = mutationWithClientMutationId({
     description: {
       type: GraphQLNonNull(GraphQLString),
     },
-    address: {
-      type: GraphQLString,
-    },
-    date: {
-      type: GraphQLString,
-    },
   },
   mutateAndGetPayload: async (args: TodoAddArgs) => {
-    const { title, description, address, date } = args;
+    const { title, description } = args;
 
     const newTodo = await new Todo({
       title,
       description,
-      address,
-      date,
     }).save();
 
     return {
