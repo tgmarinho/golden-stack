@@ -64,6 +64,7 @@ type EventEdge {
 
 type Mutation {
   EventAdd(input: EventAddInput!): EventAddPayload
+  TodoAdd(input: TodoAddInput!): TodoAddPayload
 }
 
 """An object with an ID"""
@@ -105,4 +106,68 @@ type Query {
   ): [Node]!
   events(after: String, first: Int, before: String, last: Int, search: String): EventConnection!
   event(id: ID!): Event
+  todos(after: String, first: Int, before: String, last: Int, search: String): TodoConnection!
+  todo(id: ID!): Todo
+}
+
+"""Represents Todo"""
+type Todo implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """MongoDB _id"""
+  _id: String!
+  title: String
+  description: String
+  createdAt: String
+  updatedAt: String
+}
+
+input TodoAddInput {
+  title: String!
+  description: String!
+  address: String
+  date: String
+  clientMutationId: String
+}
+
+type TodoAddPayload {
+  TodoEdge: TodoEdge
+  error: String
+  clientMutationId: String
+}
+
+"""A connection to a list of items."""
+type TodoConnection {
+  """Number of items in this connection"""
+  count: Int!
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+    This allows a client to fetch the first five objects by passing "5" as the
+    argument to "first", then fetch the total count so it could display "5 of 83",
+    for example.
+  """
+  totalCount: Int!
+
+  """Offset from start"""
+  startCursorOffset: Int!
+
+  """Offset till end"""
+  endCursorOffset: Int!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfoExtended!
+
+  """A list of edges."""
+  edges: [TodoEdge]!
+}
+
+"""An edge in a connection."""
+type TodoEdge {
+  """The item at the end of the edge"""
+  node: Todo!
+
+  """A cursor for use in pagination"""
+  cursor: String!
 }

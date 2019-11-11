@@ -2,6 +2,10 @@ import { fromGlobalId } from 'graphql-relay';
 
 import Event, * as EventLoader from '../modules/event/EventLoader';
 import EventType from '../modules/event/EventType';
+
+import Todo, * as TodoLoader from '../modules/todo/TodoLoader';
+import TodoType from '../modules/todo/TodoType';
+
 import { GraphQLContext } from '../types';
 
 import { nodeDefinitions } from './node';
@@ -15,6 +19,10 @@ const { nodeField, nodesField, nodeInterface } = nodeDefinitions(
       return EventLoader.load(context, id);
     }
 
+    if (type === 'Todo') {
+      return TodoLoader.load(context, id);
+    }
+
     // it should not get here
     return null;
   },
@@ -22,6 +30,10 @@ const { nodeField, nodesField, nodeInterface } = nodeDefinitions(
   obj => {
     if (obj instanceof Event) {
       return EventType;
+    }
+
+    if (obj instanceof Todo) {
+      return TodoType;
     }
 
     // it should not get here

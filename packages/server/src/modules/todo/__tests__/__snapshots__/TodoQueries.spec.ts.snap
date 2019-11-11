@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoType queries should query all Todos 1`] = `
+Object {
+  "data": Object {
+    "todos": Object {
+      "edges": Array [
+        Object {
+          "node": Object {
+            "description": "This is an awesome todo #1",
+            "id": "FROZEN-ID",
+            "title": "Todo #1",
+          },
+        },
+        Object {
+          "node": Object {
+            "description": "This is an awesome todo #2",
+            "id": "FROZEN-ID",
+            "title": "Todo #2",
+          },
+        },
+        Object {
+          "node": Object {
+            "description": "This is an awesome todo #3",
+            "id": "FROZEN-ID",
+            "title": "Todo #3",
+          },
+        },
+        Object {
+          "node": Object {
+            "description": "This is an awesome todo #4",
+            "id": "FROZEN-ID",
+            "title": "Todo #4",
+          },
+        },
+        Object {
+          "node": Object {
+            "description": "This is an awesome todo #5",
+            "id": "FROZEN-ID",
+            "title": "Todo #5",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`TodoType queries should query an Todo 1`] = `
+Object {
+  "data": Object {
+    "todo": Object {
+      "description": "This is an awesome todo #NaN",
+      "id": "FROZEN-ID",
+      "title": "Todo #NaN",
+    },
+  },
+}
+`;
+
+exports[`TodoType queries should search all Todos 1`] = `
+Object {
+  "data": Object {
+    "todos": Object {
+      "edges": Array [
+        Object {
+          "node": Object {
+            "description": "two",
+            "id": "FROZEN-ID",
+            "title": "Todo #4",
+          },
+        },
+        Object {
+          "node": Object {
+            "description": "This is an awesome todo #5",
+            "id": "FROZEN-ID",
+            "title": "title two",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
