@@ -1,12 +1,12 @@
 import React from 'react';
-import {SafeAreaView, Text, StatusBar, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, StatusBar} from 'react-native';
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <Text style={styles.text}>Bem vindo</Text>
+        <Text style={styles.text}>Step One</Text>
       </SafeAreaView>
     </>
   );
